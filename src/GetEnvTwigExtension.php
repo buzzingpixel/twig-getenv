@@ -9,14 +9,14 @@ declare(strict_types=1);
 
 namespace buzzingpixel\twiggetenv;
 
-use Twig_Function;
-use Twig_Extension;
+use Twig\TwigFunction;
+use Twig\Extension\AbstractExtension;
 
-class GetEnvTwigExtension extends Twig_Extension
+class GetEnvTwigExtension extends AbstractExtension
 {
     public function getFunctions(): array
     {
-        return [new Twig_Function('getenv', [$this, 'getenv'])];
+        return [new TwigFunction('getenv', [$this, 'getenv'])];
     }
 
     public function getenv(string $which)
